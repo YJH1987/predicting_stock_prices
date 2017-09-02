@@ -4,9 +4,7 @@ from sklearn.svm import SVR
 import matplotlib.pyplot as plt
 
 
-plt.switch_backend('newbackend')  
-
-
+#plt.switch_backend('pdf')  
 
 dates = []
 prices = []
@@ -38,7 +36,9 @@ def predict_price(dates, prices, x):
 	plt.ylabel('Price')
 	plt.title('Support Vector Regression')
 	plt.legend()
-	plt.show()
+	plt.savefig('stocks.png')
+	#plt.show()
+	print ("plot has been saved")
 
 	return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0]
 
